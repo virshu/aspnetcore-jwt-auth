@@ -7,5 +7,5 @@ import { HttpClient, HttpHeaders } from '@angular/common/http';
   styleUrls: []
 })
 export class CustomersComponent  {
-
+	customers: string[]
   }
