@@ -24,10 +24,10 @@ import { AppComponent } from './app.component';
     FormsModule,
     HttpClientModule,
     RouterModule.forRoot([
-      { path: '', component: HomeComponent },
-      { path: 'login', component: LoginComponent },
-      { path: 'customers', component: CustomersComponent },
-    ])
+    { path: '', component: HomeComponent },
+    { path: 'login', component: LoginComponent },
+    { path: 'customers', component: CustomersComponent },
+], { relativeLinkResolution: 'legacy' })
   ],
   providers: [AuthGuard],
   bootstrap: [AppComponent]
