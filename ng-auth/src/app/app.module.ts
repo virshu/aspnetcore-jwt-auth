@@ -9,8 +9,11 @@ import { HomeComponent } from './home/home.component';
 import { LoginComponent } from './login/login.component';
 import { CustomersComponent } from './customers/customers.component';
 import { AppComponent } from './app.component';
+import {JwtModule} from '@auth0/angular-jwt';
 
-
+export function tokenGetter() {
+  return localStorage.getItem("jwt");
+}
 
 @NgModule({
   declarations: [
@@ -27,7 +30,14 @@ import { AppComponent } from './app.component';
     { path: '', component: HomeComponent },
     { path: 'login', component: LoginComponent },
     { path: 'customers', component: CustomersComponent },
-], { relativeLinkResolution: 'legacy' })
+], { relativeLinkResolution: 'legacy' }),
+    JwtModule.forRoot({
+      config: {
+        tokenGetter: tokenGetter,
+        allowedDomains: ["localhost:5151"],
+        disallowedRoutes: []
+      }
+    })
   ],
   providers: [AuthGuard],
   bootstrap: [AppComponent]

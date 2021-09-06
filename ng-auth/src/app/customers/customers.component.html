@@ -1,4 +1,15 @@
 <h1>Customers</h1>
-<ul>
-  <li *ngFor="let cust of customers">{{ cust }}</li>
-</ul>
+<table>
+  <thead>
+  <tr><th>Number</th><th>First Name</th><th>Last Name</th></tr>
+  </thead>
+  <tbody>
+  <tr *ngFor="let cust of customers">
+    <td>{{cust.inmateNumber}}</td>
+    <td>{{cust.personDetail.personFirstName}}</td>
+    <td>{{cust.personDetail.personLastName}}</td>
+  </tr>
+  </tbody>
+</table>
+
+<a routerLink="/">Back</a>
